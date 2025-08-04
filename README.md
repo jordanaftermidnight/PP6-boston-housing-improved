@@ -18,6 +18,15 @@ This project enhances the classic Boston Housing dataset analysis by implementin
 - **Model Stability**: Consistent performance across multiple runs
 - **Feature Insights**: Clear visualization of feature importance and correlations
 
+## 📝 Assignment Deliverables
+
+### 📓 PP6 Assignment Notebook
+- **GitHub URL**: https://github.com/jordanaftermidnight/PP6-boston-housing-improved/blob/main/PP6_Boston_Housing_Improvements.ipynb
+- **Local Path**: `PP6_Boston_Housing_Improvements.ipynb`
+
+### ✍️ Written Summary
+Looking at the original Boston Housing regression problem, I decided to push beyond basic linear models and implement several key improvements that would make a real difference in prediction accuracy. The main areas I focused on were advanced feature engineering, neural network architecture optimization, and comprehensive validation techniques. I added 8 carefully crafted features like interaction terms (LSTAT×RM), polynomial features (RM²), and ratio features (PTRATIO/TAX) that capture non-linear relationships the original features couldn't express. The neural network architecture got a complete overhaul with batch normalization, dropout regularization, and early stopping callbacks that prevent overfitting while maintaining model capacity. I also implemented robust outlier detection using Isolation Forest, which cleaned up the data and improved model stability. The visualization suite now includes error vs epoch plots, residual analysis, and feature importance rankings that give real insights into model behavior. Most importantly, I added multi-run stability analysis to ensure the improvements weren't just lucky random variations but consistent performance gains. The end result was a 10-20% improvement in MSE with much better generalization characteristics.
+
 ## 🚀 Quick Start
 
 ### Option 1: Automated Setup (Recommended)
