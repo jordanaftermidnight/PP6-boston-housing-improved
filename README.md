@@ -1,6 +1,6 @@
 # 🏠 PP6: Boston Housing Price Prediction - Improved Model
 
-A comprehensive machine learning project that demonstrates significant improvements over baseline models through advanced feature engineering, data preprocessing, and model optimization techniques.
+A machine learning project that tackled real-world data challenges and delivered models that significantly outperformed our starting benchmarks through careful feature crafting and strategic optimization.
 
 ## 🎯 Project Overview
 
