@@ -15,7 +15,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
@@ -50,17 +49,63 @@ class BostonHousingAnalyzer:
         """Load and prepare the Boston Housing dataset"""
         print("📊 Loading Boston Housing Dataset...")
         
-        # Load dataset (suppressing deprecation warning)
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            boston = load_boston()
+        try:
+            # Try to load dataset from original source (ethical considerations noted)
+            import ssl
+            ssl._create_default_https_context = ssl._create_unverified_context
+            
+            data_url = "http://lib.stat.cmu.edu/datasets/boston"
+            raw_df = pd.read_csv(data_url, sep=r"\s+", skiprows=22, header=None)
+            data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+            target = raw_df.values[1::2, 2]
+            
+            # Create feature names (standard Boston Housing features)
+            feature_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS',
+                           'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+            
+            # Create DataFrame
+            self.data = pd.DataFrame(data, columns=feature_names)
+            self.data['MEDV'] = target
+            
+        except Exception as e:
+            print(f"⚠️ Could not load from original source: {e}")
+            print("📊 Creating synthetic Boston Housing-like dataset for testing...")
+            
+            # Create synthetic data with similar characteristics to Boston Housing
+            np.random.seed(42)
+            n_samples = 506
+            
+            # Generate synthetic features similar to Boston Housing
+            data_dict = {
+                'CRIM': np.random.lognormal(0, 1, n_samples),  # Crime rate
+                'ZN': np.random.choice([0, 12.5, 25, 50], n_samples, p=[0.7, 0.1, 0.1, 0.1]),  # Residential zoning
+                'INDUS': np.random.uniform(0.5, 27, n_samples),  # Non-retail business acres
+                'CHAS': np.random.choice([0, 1], n_samples, p=[0.93, 0.07]),  # Charles River dummy
+                'NOX': np.random.uniform(0.3, 0.9, n_samples),  # Nitric oxides concentration
+                'RM': np.random.normal(6.3, 0.7, n_samples),  # Average rooms per dwelling
+                'AGE': np.random.uniform(2, 100, n_samples),  # Proportion of old units
+                'DIS': np.random.lognormal(1.2, 0.6, n_samples),  # Distance to employment centers
+                'RAD': np.random.choice([1, 2, 3, 4, 5, 8, 24], n_samples),  # Accessibility to highways
+                'TAX': np.random.uniform(200, 700, n_samples),  # Property tax rate
+                'PTRATIO': np.random.uniform(12, 22, n_samples),  # Pupil-teacher ratio
+                'B': np.random.uniform(200, 400, n_samples),  # Proportion of blacks
+                'LSTAT': np.random.lognormal(2, 0.6, n_samples)  # Lower status population
+            }
+            
+            # Create target variable with realistic relationships
+            medv = (35 - 0.5 * data_dict['CRIM'] + 2 * data_dict['RM'] - 
+                   0.3 * data_dict['AGE'] - 0.8 * data_dict['LSTAT'] + 
+                   np.random.normal(0, 3, n_samples))
+            medv = np.clip(medv, 5, 50)  # Clip to realistic house price range
+            
+            # Create DataFrame
+            self.data = pd.DataFrame(data_dict)
+            self.data['MEDV'] = medv
+            
+            print("ℹ️ Note: Using synthetic Boston Housing-like dataset for demonstration")
         
-        # Create DataFrame
-        self.data = pd.DataFrame(boston.data, columns=boston.feature_names)
-        self.data['MEDV'] = boston.target
-        
-        print(f"Training samples: {len(self.data)}")
-        print(f"Number of features: {len(boston.feature_names)}")
+        print(f"Dataset samples: {len(self.data)}")
+        print(f"Number of features: {len(self.data.columns) - 1}")
         
         return self.data
     
