@@ -25,7 +25,7 @@ Python: >=3.8
 """
 
 __version__ = "1.0.0"
-__author__ = "Jordan After Midnight"
+__author__ = "ML Analysis Pipeline"
 
 import numpy as np
 import pandas as pd
