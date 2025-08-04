@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Boston Housing Project - Setup Verification Script
+PP6: Boston Housing Project - Setup Verification Script
 Checks if all dependencies and directories are properly configured.
 """
 
@@ -79,7 +79,7 @@ def check_files():
 
 def main():
     """Main diagnostic function."""
-    print("🏠 Boston Housing Project - Setup Diagnostic")
+    print("🏠 PP6: Boston Housing Project - Setup Diagnostic")
     print("=" * 45)
     
     all_good = True

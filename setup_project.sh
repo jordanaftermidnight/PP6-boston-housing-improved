@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🏠 Boston Housing Project - Automated Setup"
+echo "🏠 PP6: Boston Housing Project - Automated Setup"
 echo "=========================================="
 
 # Create virtual environment

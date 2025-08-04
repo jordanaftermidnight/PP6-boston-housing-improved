@@ -1,4 +1,4 @@
-# 🏠 Boston Housing Price Prediction - Improved Model
+# 🏠 PP6: Boston Housing Price Prediction - Improved Model
 
 A comprehensive machine learning project that demonstrates significant improvements over baseline models through advanced feature engineering, data preprocessing, and model optimization techniques.
 
@@ -50,7 +50,7 @@ make all  # Setup and run everything
 ## 📁 Project Structure
 
 ```
-boston-housing-improved/
+PP6-boston-housing-improved/
 ├── README.md                           # This file
 ├── requirements.txt                    # Python dependencies
 ├── setup_project.sh                   # Automated setup script

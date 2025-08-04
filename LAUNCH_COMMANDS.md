@@ -1,4 +1,4 @@
-# 🚀 Boston Housing Project - Launch Commands
+# 🚀 PP6: Boston Housing Project - Launch Commands
 
 ## Quick Start (Choose One Method)
 
@@ -40,7 +40,7 @@ python boston_housing_improved.py
 ### 1. First-Time Setup
 ```bash
 # Clone or navigate to your repo
-cd boston-housing-improved
+cd PP6-boston-housing-improved
 
 # Create all project files (copy from artifacts)
 # The setup_project.sh script creates everything automatically
@@ -263,7 +263,7 @@ python boston_housing_improved.py
 After running all commands, your directory should contain:
 
 ```
-boston-housing-improved/
+PP6-boston-housing-improved/
 ├── README.md
 ├── requirements.txt
 ├── setup_project.sh
