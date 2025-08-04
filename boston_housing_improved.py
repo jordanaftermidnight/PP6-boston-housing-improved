@@ -1,15 +1,27 @@
 #!/usr/bin/env python3
 """
-Boston Housing Price Prediction - Improved Model
-===============================================
+PP6: Boston Housing Price Prediction - Improved Model
+====================================================
 
-A comprehensive machine learning project demonstrating significant improvements
-over baseline models through advanced feature engineering, data preprocessing,
-and model optimization techniques.
+A machine learning project that tackled real-world data challenges and delivered 
+models that significantly outperformed our starting benchmarks through careful 
+feature crafting and strategic optimization.
+
+Features:
+    - Advanced feature engineering with 8 engineered features
+    - Robust data loading with synthetic fallback
+    - Deep neural network with regularization techniques
+    - Comprehensive model validation and visualization
+    - Multi-run stability analysis
 
 Author: ML Analysis Pipeline
+Version: 1.0.0
 Date: 2025
+Python: >=3.8
 """
+
+__version__ = "1.0.0"
+__author__ = "ML Analysis Pipeline"
 
 import numpy as np
 import pandas as pd
@@ -32,7 +44,26 @@ from pathlib import Path
 warnings.filterwarnings('ignore')
 
 class BostonHousingAnalyzer:
-    """Advanced Boston Housing Price Prediction with Feature Engineering"""
+    """
+    Advanced Boston Housing Price Prediction with Feature Engineering
+    
+    A comprehensive machine learning analyzer that demonstrates significant
+    improvements over baseline models through advanced feature engineering,
+    outlier detection, and neural network optimization.
+    
+    Features:
+        - Robust data loading with fallback synthetic data generation
+        - Advanced feature engineering (8 engineered features)
+        - Outlier detection using Isolation Forest
+        - Deep neural network with regularization
+        - Comprehensive model validation and visualization
+        - Multi-run stability analysis
+    
+    Example:
+        >>> analyzer = BostonHousingAnalyzer()
+        >>> results = analyzer.run_complete_analysis()
+        >>> print(f"Improvement: {results['improvements']['mse_improvement_percent']:.2f}%")
+    """
     
     def __init__(self):
         self.data = None
@@ -494,10 +525,38 @@ Generated on {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}
         return self.results
 
 def main():
-    """Main execution function"""
-    analyzer = BostonHousingAnalyzer()
-    results = analyzer.run_complete_analysis()
-    return results
+    """
+    Main execution function with optional command line interface
+    
+    Returns:
+        dict: Complete analysis results including model performance metrics
+    """
+    import sys
+    
+    print(f"🏠 PP6: Boston Housing Analysis v{__version__}")
+    print(f"🐍 Python: {sys.version.split()[0]}")
+    print("=" * 60)
+    
+    try:
+        analyzer = BostonHousingAnalyzer()
+        results = analyzer.run_complete_analysis()
+        
+        print("\n🎉 Analysis completed successfully!")
+        print(f"📊 Final MSE Improvement: {results['improvements']['mse_improvement_percent']:.2f}%")
+        print(f"📈 Final R² Improvement: {results['improvements']['r2_improvement_percent']:.2f}%")
+        
+        return results
+        
+    except KeyboardInterrupt:
+        print("\n⚠️ Analysis interrupted by user")
+        return None
+    except Exception as e:
+        print(f"\n❌ Analysis failed: {e}")
+        import traceback
+        traceback.print_exc()
+        return None
 
 if __name__ == "__main__":
-    main()
+    results = main()
+    if results is None:
+        exit(1)

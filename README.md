@@ -107,15 +107,25 @@ The improved model demonstrates significant enhancements:
 - **Training Stability**: Consistent results across multiple runs
 - **Feature Utilization**: Better leveraging of engineered features
 
-## 🛠️ Dependencies
+## 🛠️ Dependencies & Requirements
 
-- **Python 3.8+**
-- **TensorFlow 2.x**: Deep learning framework
-- **scikit-learn**: Machine learning utilities
-- **pandas**: Data manipulation
-- **numpy**: Numerical computing
-- **matplotlib**: Data visualization
-- **seaborn**: Statistical plotting
+### System Requirements
+- **Python**: 3.8+ (tested on 3.8, 3.9, 3.10, 3.11, 3.12)
+- **Memory**: 4GB+ RAM recommended
+- **Storage**: 100MB free space for models and results
+
+### Core Dependencies
+- **TensorFlow**: ≥2.13.0 - Deep learning framework
+- **scikit-learn**: ≥1.3.0 - Machine learning utilities  
+- **pandas**: ≥2.0.0 - Data manipulation and analysis
+- **numpy**: ≥1.24.0 - Numerical computing
+- **matplotlib**: ≥3.7.0 - Data visualization
+- **seaborn**: ≥0.12.0 - Statistical plotting
+- **jupyter**: ≥1.0.0 - Interactive notebook support
+
+### Optional Features
+- **Git**: For version control and cloning
+- **Make**: For automated build commands (optional)
 
 ## 📚 Usage Examples
 
