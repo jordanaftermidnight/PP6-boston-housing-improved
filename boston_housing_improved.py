@@ -3,25 +3,29 @@
 PP6: Boston Housing Price Prediction - Improved Model
 ====================================================
 
+Author: Jordan After Midnight
+Development: Individual academic project with Claude AI assistance for 
+code optimization, testing, and repository management.
+
 A machine learning project that tackled real-world data challenges and delivered 
-models that significantly outperformed our starting benchmarks through careful 
-feature crafting and strategic optimization.
+models that significantly outperformed our starting benchmarks through systematic
+feature crafting, hyperparameter tuning, and precision optimization.
 
 Features:
     - Advanced feature engineering with 8 engineered features
+    - Systematic hyperparameter tuning across batch size, dropout, learning rate
     - Robust data loading with synthetic fallback
-    - Deep neural network with regularization techniques
-    - Comprehensive model validation and visualization
-    - Multi-run stability analysis
+    - Deep neural network with batch normalization and regularization
+    - Comprehensive model validation and professional visualizations
+    - Multi-run stability analysis for reliable performance metrics
 
-Author: ML Analysis Pipeline
 Version: 1.0.0
 Date: 2025
 Python: >=3.8
 """
 
 __version__ = "1.0.0"
-__author__ = "ML Analysis Pipeline"
+__author__ = "Jordan After Midnight"
 
 import numpy as np
 import pandas as pd

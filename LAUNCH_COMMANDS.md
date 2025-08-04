@@ -1,5 +1,8 @@
 # 🚀 PP6: Boston Housing Project - Launch Commands
 
+**Author**: Jordan After Midnight  
+**Development**: Individual project with Claude AI assistance for optimization and testing
+
 ## Quick Start (Choose One Method)
 
 ### Method 1: Using the Setup Script (Easiest)
